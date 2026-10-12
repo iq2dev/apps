@@ -1,0 +1,309 @@
+/* _content/iqToolPro.Ui/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-zwx0atrd9q] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-zwx0atrd9q] {
+    flex: 1;
+}
+
+/*
+    A dark neutral rail, not a green one. The site uses green as an accent over a
+    neutral ground, and a green sidebar would also run straight into the green
+    page headers with no seam. #222222 is the site's own --color-dark.
+*/
+.sidebar[b-zwx0atrd9q] {
+    background: var(--iq-dark, #222222);
+}
+
+.top-row[b-zwx0atrd9q] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    /* min-height, not height: the bar is as short as its content allows, and a
+       larger browser font pushes it taller instead of clipping the link. */
+    min-height: 1.5rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-zwx0atrd9q]  a, .top-row[b-zwx0atrd9q]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-zwx0atrd9q]  a:hover, .top-row[b-zwx0atrd9q]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-zwx0atrd9q]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row[b-zwx0atrd9q] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-zwx0atrd9q]  a, .top-row[b-zwx0atrd9q]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-zwx0atrd9q] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-zwx0atrd9q] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-zwx0atrd9q] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-zwx0atrd9q]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-zwx0atrd9q], article[b-zwx0atrd9q] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+#blazor-error-ui[b-zwx0atrd9q] {
+    color-scheme: light only;
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss[b-zwx0atrd9q] {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+/* _content/iqToolPro.Ui/Components/Layout/NavMenu.razor.rz.scp.css */
+/*
+    Dark rail, green accent — the relationship iq2-development.de uses, where
+    green marks the active item over a neutral ground rather than filling the
+    surface. The brand block at the top is solid green so the company colour
+    leads, and it ties the rail to the green page headers.
+*/
+
+.navbar-toggler[b-mwl19xcsud] {
+    appearance: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 2.5rem;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler:checked[b-mwl19xcsud] {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* The one solid block of company colour, at the top of the rail. */
+.top-row[b-mwl19xcsud] {
+    min-height: 3.5rem;
+    background-color: var(--iq-primary, #76ab22);
+}
+
+.navbar-brand[b-mwl19xcsud] {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Smaller and lighter than the name, so the name still leads. */
+.brand-version[b-mwl19xcsud] {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-left: 0.25rem;
+}
+
+.bi[b-mwl19xcsud] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+.bi-house-door-fill-nav-menu[b-mwl19xcsud] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
+}
+
+.bi-plus-square-fill-nav-menu[b-mwl19xcsud] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-plus-square-fill' viewBox='0 0 16 16'%3E%3Cpath d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
+}
+
+.bi-list-nested-nav-menu[b-mwl19xcsud] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+}
+
+.nav-item[b-mwl19xcsud] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-mwl19xcsud] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-mwl19xcsud] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-mwl19xcsud]  .nav-link {
+        color: rgba(255, 255, 255, 0.75);
+        background: none;
+        border: none;
+        border-radius: 0;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        width: 100%;
+        position: relative;
+        transition: color .2s ease 0s, background-color .2s ease 0s;
+    }
+
+    /*
+        The site's accent bar in the brand green, scaled in from its origin —
+        an underline there, a leading edge here because the menu is vertical.
+    */
+    .nav-item[b-mwl19xcsud]  .nav-link::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--iq-primary, #76ab22);
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all .3s ease 0s;
+    }
+
+.nav-item[b-mwl19xcsud]  .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+    .nav-item[b-mwl19xcsud]  .nav-link:hover::before {
+        opacity: .5;
+        transform: scaleY(1);
+    }
+
+/* Green tint rather than a grey one, so the active row belongs to the accent. */
+.nav-item[b-mwl19xcsud]  a.active {
+    color: #fff;
+    font-weight: 600;
+    background-color: rgba(118, 171, 34, 0.22);
+}
+
+    .nav-item[b-mwl19xcsud]  a.active::before {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+.nav-scrollable[b-mwl19xcsud] {
+    display: none;
+}
+
+.navbar-toggler:checked ~ .nav-scrollable[b-mwl19xcsud] {
+    display: block;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-mwl19xcsud] {
+        display: none;
+    }
+
+    .nav-scrollable[b-mwl19xcsud] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}
+/* _content/iqToolPro.Ui/Components/Pages/Dashboard.razor.rz.scp.css */
+/* A line of a panel: label left, value right, a hairline between lines. */
+.dash-item[b-bjkhaivvuv] {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+
+.dash-item:last-child[b-bjkhaivvuv] {
+    border-bottom: none;
+}
+
+.dash-label[b-bjkhaivvuv] {
+    color: var(--bs-secondary-color);
+}
+
+.dash-picture[b-bjkhaivvuv] {
+    max-width: 140px;
+    max-height: 140px;
+    object-fit: contain;
+}
+
+.dash-logo[b-bjkhaivvuv] {
+    max-height: 32px;
+    max-width: 160px;
+    object-fit: contain;
+}
+
+.dash-facts th[b-bjkhaivvuv],
+.dash-wires th[b-bjkhaivvuv] {
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--bs-secondary-color);
+}
+
+/* The wire's colour as a dot, outlined so white shows on white. */
+.dash-wire[b-bjkhaivvuv] {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    border: 1px solid #666;
+    vertical-align: -0.1rem;
+}

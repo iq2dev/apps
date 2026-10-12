@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iqToolPro</title>
+    <base href="/iqToolPro/iqToolPro/" />
+    <link href="_framework/dotnet.favp8y7rkw.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-p2qHW5rhdR4WT8aJPVCVTuwy1OGVj3yHRV3cRe8QOAg=" />
+    <link rel="stylesheet" href="_content/iqToolPro.Ui/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="_content/iqToolPro.Ui/app.css" />
+    <link rel="stylesheet" href="iqToolPro.Web.styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.w3qd1tpl0e.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.favp8y7rkw.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.r7da0btuwg.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.nkt61nz8g3.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/blazor.webassembly.w3qd1tpl0e.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/dotnet.favp8y7rkw.js": "sha256-p2qHW5rhdR4WT8aJPVCVTuwy1OGVj3yHRV3cRe8QOAg=",
+    "./_framework/dotnet.js": "sha256-p2qHW5rhdR4WT8aJPVCVTuwy1OGVj3yHRV3cRe8QOAg=",
+    "./_framework/dotnet.native.js": "sha256-Z738dVR8nM0DIeUTQrSX6LONceuzO3pLmiyGK3v/MXI=",
+    "./_framework/dotnet.native.r7da0btuwg.js": "sha256-Z738dVR8nM0DIeUTQrSX6LONceuzO3pLmiyGK3v/MXI=",
+    "./_framework/dotnet.runtime.js": "sha256-N2jQlW1SnXkikWXsDWyFWl07L/Fkp2CBlsBahkF1Im8=",
+    "./_framework/dotnet.runtime.nkt61nz8g3.js": "sha256-N2jQlW1SnXkikWXsDWyFWl07L/Fkp2CBlsBahkF1Im8="
+  }
+}</script>
+    <style>
+        #iq-loading { font-family: system-ui, sans-serif; margin: 3rem auto; max-width: 40rem; color: #555; }
+        #iq-no-serial { display: none; background: #fff3cd; border-bottom: 1px solid #e0c36b;
+                        padding: .5rem 1rem; font-family: system-ui, sans-serif; }
+        #blazor-error-ui { display: none; position: fixed; bottom: 0; left: 0; width: 100%;
+                           background: #ffe0e0; padding: .6rem 1.25rem; z-index: 1000; font-family: system-ui, sans-serif; }
+        #blazor-error-ui .dismiss { cursor: pointer; position: absolute; right: .75rem; top: .5rem; }
+    </style>
+</head>
+
+<body>
+    <div id="iq-no-serial">
+        This browser has no Web Serial, so it cannot reach an IO-Link master. Open iqToolPro in
+        <b>Microsoft Edge</b> or <b>Google Chrome</b>.
+    </div>
+    <script>
+        if (!("serial" in navigator)) document.getElementById("iq-no-serial").style.display = "block";
+    </script>
+
+    <div id="app">
+        <div id="iq-loading">Loading iqToolPro…</div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+
+    <script src="_content/iqToolPro.Ui/js/fileHelper.js"></script>
+    <script src="js/serial.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/report.js"></script>
+    <script src="_framework/blazor.webassembly.w3qd1tpl0e.js"></script>
+</body>
+
+</html>
