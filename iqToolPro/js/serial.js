@@ -5,16 +5,31 @@ let port = null;
 let reader = null;
 let received = [];      // bytes read from the port and not yet taken by readExact
 let readerDone = null;  // the background read loop, ended by close()
+let remembered = [];    // the ports remembered() found, for use()
+
+// The USB converter built into IQ2's masters (iqLink, iqInterface): an FTDI FT230XS. The port
+// chooser lists only these unless every serial port is asked for.
+const masterPortFilters = [{ usbVendorId: 0x0403, usbProductId: 0x6015 }];
 
 window.iqSerial = {
     supported: () => "serial" in navigator,
 
-    // Shows the browser's port chooser; must run during the user's click.
-    request: async () => {
-        port = await navigator.serial.requestPort();
-        const info = port.getInfo();
-        return `USB ${hex4(info.usbVendorId)}:${hex4(info.usbProductId)}`;
+    // Shows the browser's port chooser; must run during the user's click. Lists only the
+    // masters' USB converters unless allPorts is set.
+    request: async (allPorts) => {
+        port = await navigator.serial.requestPort(allPorts ? {} : { filters: masterPortFilters });
+        return describe(port);
     },
+
+    // The ports this site was allowed before and that are plugged in, the masters' converters
+    // first. Shows nothing and needs no click; use(index) makes one the port open() opens.
+    remembered: async () => {
+        const ports = (await navigator.serial.getPorts()).filter(p => p.connected !== false);
+        remembered = [...ports.filter(isMasterPort), ...ports.filter(p => !isMasterPort(p))];
+        return remembered.map(describe);
+    },
+
+    use: (index) => { port = remembered[index]; },
 
     // 8N1 like SerialPortTransport. DTR and RTS off, as System.IO.Ports leaves them.
     open: async (baudRate) => {
@@ -70,6 +85,19 @@ window.iqAes = {
 
 function importKey(key) {
     return crypto.subtle.importKey("raw", new Uint8Array(key), { name: "AES-CBC" }, false, ["encrypt", "decrypt"]);
+}
+
+function isMasterPort(p) {
+    const info = p.getInfo();
+    return masterPortFilters.some(f => f.usbVendorId === info.usbVendorId && f.usbProductId === info.usbProductId);
+}
+
+// What the browser tells about a port: its USB IDs, or nothing for a port without USB.
+function describe(p) {
+    const info = p.getInfo();
+    return info.usbVendorId === undefined
+        ? "serial port without USB IDs"
+        : `USB ${hex4(info.usbVendorId)}:${hex4(info.usbProductId)}`;
 }
 
 function hex4(v) {

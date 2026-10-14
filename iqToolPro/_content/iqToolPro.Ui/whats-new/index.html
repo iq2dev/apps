@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iqToolPro – What's new</title>
+<!--
+  What changed in each version of iqToolPro, for its users: short, plain, newest first.
+  Built into the app like the user manual (iqToolPro.Ui.csproj copies this file to
+  wwwroot/whats-new/index.html) and opened by the top bar's "What's new" link.
+  One entry per committed version with a change users notice; builds handed over only for
+  testing are not listed - their changes go under the version that is committed.
+  Colours and type are the user manual's (doc/user-manual.html).
+-->
+<style>
+  :root {
+    --ground:      #ffffff;
+    --ink:         #1b1e17;
+    --ink-soft:    #4d5347;
+    --ink-faint:   #7b8175;
+    --rule:        #dadfce;
+    --accent:      #76ab22;
+    --accent-deep: #5b8419;
+    --display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #14170f;
+      --ink:         #e9ece1;
+      --ink-soft:    #b3b9a8;
+      --ink-faint:   #838a78;
+      --rule:        #2f3626;
+      --accent:      #8ccb29;
+      --accent-deep: #a5dc4b;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #14170f;
+    --ink:         #e9ece1;
+    --ink-soft:    #b3b9a8;
+    --ink-faint:   #838a78;
+    --rule:        #2f3626;
+    --accent:      #8ccb29;
+    --accent-deep: #a5dc4b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+  @media (max-width: 600px) {
+    .page { padding: 0 16px 64px; }
+  }
+
+  .masthead {
+    padding: 56px 0 24px;
+    border-bottom: 3px solid var(--accent);
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 700;
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+  }
+  .standfirst {
+    margin: 0;
+    max-width: 60ch;
+    color: var(--ink-soft);
+  }
+
+  .release {
+    padding: 28px 0 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .release h2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 14px;
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .release time {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+  .release ul {
+    margin: 12px 0 0;
+    padding-left: 1.2em;
+  }
+  .release li { margin: 6px 0; }
+  .release li::marker { color: var(--accent); }
+
+  strong { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <p class="eyebrow">iqToolPro</p>
+  <h1>What's new</h1>
+  <p class="standfirst">
+    What changed in each version, newest first.
+  </p>
+</header>
+
+<section class="release" id="v1.0.0.20">
+  <h2>1.0.0.20 <time datetime="2026-10-14">14 October 2026</time></h2>
+  <ul>
+    <li>Master connection algorithm improvement.</li>
+    <li>Port selection on the start page fixed.</li>
+    <li>Easier port selection in the browser.</li>
+    <li>New: What's new, next to User manual.</li>
+  </ul>
+</section>
+
+<section class="release" id="v1.0.0.11">
+  <h2>1.0.0.11 <time datetime="2026-10-09">9 October 2026</time></h2>
+  <ul>
+    <li>Legacy iqInterface and iqLink supported in the browser.</li>
+  </ul>
+</section>
+
+<section class="release" id="v1.0.0.10">
+  <h2>1.0.0.10 <time datetime="2026-10-09">9 October 2026</time></h2>
+  <ul>
+    <li>Automatic IODD download in the browser.</li>
+  </ul>
+</section>
+
+<section class="release" id="v1.0.0.9">
+  <h2>1.0.0.9 <time datetime="2026-10-07">7 October 2026</time></h2>
+  <ul>
+    <li>Clearer log entry when an iqLink is locked.</li>
+  </ul>
+</section>
+
+<section class="release" id="v1.0.0.8">
+  <h2>1.0.0.8 <time datetime="2026-10-07">7 October 2026</time></h2>
+  <ul>
+    <li>Faster master connection.</li>
+    <li>Clearer message when a master refuses the connection.</li>
+  </ul>
+</section>
+
+</div>
+</body>
+</html>

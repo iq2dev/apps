@@ -587,7 +587,8 @@
       <p>
         <span class="ui">User manual</span>, at the top right of every page, opens this
         manual in a new tab &mdash; the copy that came with this version of the tool, so it
-        needs no internet.
+        needs no internet. <span class="ui">What's new</span>, beside it, lists in a few short
+        lines what changed in each version.
       </p>
     </section>
 
@@ -597,17 +598,41 @@
         Open <span class="ui">Connections</span> and press
         <span class="ui">Connect</span>.
       </p>
+      <p>The tool finds the master itself, in this order:</p>
+      <ol>
+        <li>
+          <strong>The USB ports of IQ2's masters.</strong> Every iqLink and
+          iqInterface has the same built-in USB connection, and Windows remembers
+          which serial ports belong to one. These ports are asked first.
+        </li>
+        <li>
+          <strong>Every other serial port</strong> &mdash; for example an iqInterface
+          connected by a serial cable instead of USB.
+        </li>
+      </ol>
       <p>
-        The tool finds the master itself. It scans every serial port for a modern
-        G06 master first, and if none answers it scans again for a legacy
-        iqInterface / iqLink master. The port dropdown is informational — it does
-        not restrict the search.
+        The first master that answers is used. While it searches, the page shows
+        which ports it is asking, and <span class="ui">Logs</span> keeps the order it
+        used.
+      </p>
+      <p>The <strong>port dropdown</strong> decides where to look:</p>
+      <ul>
+        <li><span class="ui">Auto (scan all)</span> &mdash; every port, in the order above.</li>
+        <li>
+          <strong>A COM port</strong> &mdash; only that port. Quicker on a PC with many
+          serial ports, and the way to pick one master when two are connected.
+        </li>
+      </ul>
+      <p>
+        Every port where no master answers costs at least a second, so the more
+        serial ports a PC has, the longer <span class="ui">Auto</span> takes; a master
+        on an IQ2 USB port is found before the other ports are asked.
       </p>
       <p>
         On success the page names the stack that answered and shows <span class="ui">Master
         Identification</span>: vendor, master ID, type, feature flags and port
-        count. If nothing answers, the error names what each attempt reported;
-        the usual causes are a master that is not powered, a driver still
+        count. If nothing answers, the error lists the ports it asked and what they
+        reported; the usual causes are a master that is not powered, a driver still
         installing, or another program already holding the port.
       </p>
 
@@ -1642,7 +1667,7 @@
       </p>
       <ul>
         <li><strong>Microsoft Edge or Google Chrome only.</strong> They are the browsers that can use a serial port (Web Serial); other browsers show a notice.</li>
-        <li><span class="ui">Connect</span> opens the browser's own list of serial ports &mdash; choose the IO-Link master there. The tool then finds out which master it is, as the desktop tool does on each port: an <strong>SMI iqLink</strong> answers at once, a <strong>legacy iqInterface / iqLink</strong> after about two seconds. A legacy master has the same limits as on the desktop (<a href="#r-legacy">3.6</a>).</li>
+        <li><span class="ui">Connect</span> first tries the ports you chose on this site before; only when there are none does it open the browser's own list of serial ports. That list shows only the USB ports of IQ2's masters, under a name such as <em>USB Serial Port</em>; with several listed, unplug the master &mdash; its entry is the one that disappears. <span class="ui">Choose another device&hellip;</span> opens the list at any time, and <span class="ui">My master isn't listed</span> lists every serial port, e.g. for an iqInterface connected by a serial cable instead of USB. A legacy master has the same limits as on the desktop (<a href="#r-legacy">3.6</a>).</li>
         <li><strong>IODDs from IODDfinder come through IQ2's relay</strong>, where the site is set up with one; the browser cannot hold IODDfinder's key itself. Without it, or for a device IODDfinder does not publish, load the device's IODD once on <span class="ui">IODD</span> with <span class="ui">Load .zip / .xml</span>. Either way the browser keeps it and binds it on its own the next time that device type is connected. The relay allows 20 downloads a minute from one internet address; beyond that <span class="ui">IODD</span> says the download was refused &mdash; reconnect the device a minute later, or load the file.</li>
         <li><span class="ui">Report</span> opens the browser's print dialog; choose <em>Save as PDF</em> to get the file.</li>
         <li>What the browser keeps (uploaded IODDs) belongs to that browser on that PC, and is gone if the site's data is cleared.</li>
