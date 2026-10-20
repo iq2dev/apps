@@ -153,6 +153,18 @@ main[b-zwx0atrd9q] {
     margin-left: 0.25rem;
 }
 
+/* "Test build" on the test site: amber, so it cannot be taken for the release. */
+.brand-label[b-mwl19xcsud] {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #222222;
+    background-color: #ffc107;
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
 .bi[b-mwl19xcsud] {
     display: inline-block;
     position: relative;
